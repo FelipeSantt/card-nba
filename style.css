@@ -1,0 +1,172 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --toronto-bg: #000000;
+    --toronto-pill: #a00000;
+    --miami-bg: #98002E;
+    --miami-pill: #F9A01B;
+    --memphis-bg: #5D76A9;
+    --memphis-pill: #12173F;
+    --golden-bg: #1D428A;
+    --golden-pill: #FFC72C;
+    --utah-bg: #00471B;
+    --utah-pill: #002B5C;
+    --minnesota-bg: #0C2340;
+    --minnesota-pill: #236192;
+    --phoenix-bg: #E56020;
+    --phoenix-pill: #63727A;
+
+
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+#cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+#cards .card {
+    width: calc(25% - 23px);
+    /* background-image: linear-gradient(-45deg, #777777, #dedede); */
+    border: 4px solid #00000020;
+    border-radius: 10px;
+
+}
+
+#cards .card .card-img {
+    position: relative;
+}
+
+#cards .card .card-img .card-pill {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    padding: 6px;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+#cards .card .card-img .card-pill[time= "toronto"] {
+    background: var(--toronto-pill);
+}
+#cards .card .card-img .card-pill[time= "phoenix"] {
+    background: var(--phoenix-pill);
+}
+#cards .card .card-img .card-pill[time= "miami"] {
+    background: var(--miami-pill);
+}
+#cards .card .card-img .card-pill[time= "memphis"] {
+    background: var(--memphis-pill);
+}
+#cards .card .card-img .card-pill[time= "golden"] {
+    background: var(--golden-pill);
+}
+#cards .card .card-img .card-pill[time= "utah"] {
+    background: var(--utah-pill);
+}
+#cards .card .card-img .card-pill[time= "minnesota"] {
+    background: var(--minnesota-pill);
+}
+
+#cards .card img {
+    width: 100%;
+    display: block;
+}
+
+#cards .card .card-img img {
+    width: 100%;
+    display: block;
+    padding: 36px 16px 0 16px   ;
+}
+
+
+#cards .card .card-content {
+    padding: 16px;
+}
+
+#cards .card .card-img img[time= "toronto"] {
+    background: var(--toronto-bg);
+}
+#cards .card .card-img img[time= "phoenix"] {
+    background: var(--phoenix-bg);
+}
+#cards .card .card-img img[time= "miami"] {
+    background: var(--miami-bg);
+}
+#cards .card .card-img img[time= "memphis"] {
+    background: var(--memphis-bg);
+}
+#cards .card .card-img img[time= "golden"] {
+    background: var(--golden-bg);
+}
+#cards .card .card-img img[time= "utah"] {
+    background: var(--utah-bg);
+}
+#cards .card .card-img img[time= "minnesota"] {
+    background: var(--minnesota-bg);
+}
+
+
+@media screen and (max-width: 769px) {
+    body {
+        padding: 50px;
+    }
+
+    #cards .card {
+        width: calc(50% - 13px);
+    } 
+}
+
+@media screen and (max-width: 481px) {
+    body {
+        padding: 16px;
+    }
+
+    #cards .card {
+        width: 100%;
+    } 
+}
+
+/* Deixando a tela do print ou impressao preto e branco e colocando uma marca d'agua na impressao */
+
+@media print {
+    body {
+        position: relative;
+    }
+
+    body::after{
+        content: "SEM VALOR";
+        font-size: 180px;
+        font-weight: bold;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        opacity: .2;
+    }
+
+    #cards .card .card-img img {
+        filter: grayscale(1);
+    }
+
+    #cards .card .card-content a {
+        display: none;
+    }
+}
